@@ -1,1 +1,3 @@
-var peopleData = [];
+var peopleDataArray = [];
+
+module.exports = peopleDataArray;
