@@ -21,8 +21,8 @@
     <form>
       <!--Name-->
       <div class="form-group">
-        <label for="formGroupExampleInput">Name</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        <label for="formName">Name</label>
+        <input type="text" class="form-control" id="formName" placeholder="Example input">
       </div>
 
       <!--Email-->
@@ -32,75 +32,87 @@
       </div>
 
       <!--Questions-->
-      <select class="custom-select">
+      <label for="question1">Question1</label>
+      <select id="question1" class="custom-select">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
 
-      <select class="custom-select">
+      <label for="question2">Question2</label>
+      <select id="question2" class="custom-select">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
 
-      <select class="custom-select">
+      <label for="question3">Question3</label>
+      <select id="question3" class="custom-select">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
 
-      <select class="custom-select">
+      <label for="question4">Question4</label>
+      <select id="question4" class="custom-select">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
 
-      <select class="custom-select">
+      <label for="question5">Question5</label>
+      <select id="question5" class="custom-select">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
 
-      <select class="custom-select">
+      <label for="question6">Question6</label>
+      <select id="question6" class="custom-select">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
 
-      <select class="custom-select">
+      <label for="question7">Question7</label>
+      <select id="question7" class="custom-select">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
 
-      <select class="custom-select">
+      <label for="question8">Question8</label>
+      <select id="question8" class="custom-select">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      
+      <label for="question9">Question9</label>
+      <select id="question9" class="custom-select">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
 
-      <select class="custom-select">
+      <label for="question10">Question10</label>
+      <select id="question10" class="custom-select">
         <option selected>Open this select menu</option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
       </select>
 
-      <select class="custom-select">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
+      <button type="submit" class="btn btn-primary submit">Submit</button>
     </form>
 
     <footer class="footer">
@@ -111,3 +123,67 @@
   </div>
 </body>
 </html>
+
+
+
+
+<!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS SENT TO OUR SERVER -->
+<script type="text/javascript">
+
+  // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+  // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+  // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+  // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+  $(".submit").on("click", function(event) {
+    event.preventDefault();
+
+    // Here we grab the form elements
+    var newFriend = {
+      name: $("#formName").val().trim(),
+      photo: $("#customFile").val().trim(),
+      scores: [ 
+        $("#question1").val().trim(),
+        $("#question2").val().trim(),
+        $("#question3").val().trim(),
+        $("#question4").val().trim(),
+        $("#question5").val().trim(),
+        $("#question6").val().trim(),
+        $("#question7").val().trim(),
+        $("#question8").val().trim(),
+        $("#question9").val().trim(),
+        $("#question10").val().trim()
+      ]
+    };
+
+    console.log(newFriend);
+
+    // This line is the magic. It"s very similar to the standard ajax function we used.
+    // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
+    // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
+    // depending on if a tables is available or not.
+
+  //   $.post("/api/tables", newReservation,
+  //     function(data) {
+
+  //       // If a table is available... tell user they are booked.
+  //       if (data) {
+  //         alert("Yay! You are officially booked!");
+  //       }
+
+  //       // If a table is available... tell user they on the waiting list.
+  //       else {
+  //         alert("Sorry you are on the wait list");
+  //       }
+
+  //       // Clear the form when submitting
+  //       $("#reserve-name").val("");
+  //       $("#reserve-phone").val("");
+  //       $("#reserve-email").val("");
+  //       $("#reserve-unique-id").val("");
+
+  //     });
+
+  });
+
+</script>
