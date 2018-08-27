@@ -7,6 +7,16 @@ module.exports = function(app) {
     });
 
     app.post("/api/friends", function(req, res) {
+        var match;
+        var temp = 0;
+        console.log(req.body);
+        for (var i = 0; i < peopleDataArray.length; i++) {
+            for (var j = 0; j < peopleDataArray[i].scores.length; j++) {
+                temp += peopleDataArray[i].scores[j] - req.body.scores[j];
+                console.log(temp);
+            };
+        }
         peopleDataArray.push(req.body);
+        res.json(true);
     });
 }
