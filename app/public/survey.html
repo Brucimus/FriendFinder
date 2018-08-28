@@ -22,109 +22,128 @@
       <!--Name-->
       <div class="form-group">
         <label for="formName">Name</label>
-        <input type="text" class="form-control" id="formName" placeholder="Example input">
+        <input type="text" class="form-control" id="formName" placeholder="This is my name">
       </div>
 
-      <!--Email-->
-      <div class="custom-file">
-        <input type="file" class="custom-file-input" id="customFile">
-        <label class="custom-file-label" for="customFile">Choose file</label>
+      <!--Image-->
+      <div class="form-group">
+        <label for="formGroupExampleInput">Image Link</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="My image link">
       </div>
 
       <!--Questions-->
+      <h3>Question 1</h3>
       <label for="question1">Your mind is always buzzing with unexplored ideas and plans.</label>
       <select id="question1" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         <option value="4">Four</option>
         <option value="5">Five</option>
       </select>
+      <br><br>
 
+      <h3>Question 2</h3>
       <label for="question2">Generally speaking, you rely more on your experience than your imagination.</label>
       <select id="question2" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         <option value="4">Four</option>
         <option value="5">Five</option>
       </select>
+      <br><br>
 
+      <h3>Question 3</h3>
       <label for="question3">You find it easy to stay relaxed and focused even when there is some pressure.</label>
       <select id="question3" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         <option value="4">Four</option>
         <option value="5">Five</option>
       </select>
+      <br><br>
 
+      <h3>Question 4</h3>
       <label for="question4">You rarely do something just out of sheer curiosity.</label>
       <select id="question4" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         <option value="4">Four</option>
         <option value="5">Five</option>
       </select>
+      <br><br>
 
+      <h3>Question 5</h3>
       <label for="question5">People can rarely upset you.</label>
       <select id="question5" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         <option value="4">Four</option>
         <option value="5">Five</option>
       </select>
+      <br><br>
 
+      <h3>Question 6</h3>
       <label for="question6">It is often difficult for you to relate to other people’s feelings.</label>
       <select id="question6" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         <option value="4">Four</option>
         <option value="5">Five</option>
       </select>
+      <br><br>
 
+      <h3>Question 7</h3>
       <label for="question7">In a discussion, truth should be more important than people’s sensitivities.</label>
       <select id="question7" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         <option value="4">Four</option>
         <option value="5">Five</option>
       </select>
+      <br><br>
 
+      <h3>Question 8</h3>
       <label for="question8">You rarely get carried away by fantasies and ideas.</label>
       <select id="question8" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         <option value="4">Four</option>
         <option value="5">Five</option>
       </select>
+      <br><br>
       
+      <h3>Question 9</h3>
       <label for="question9">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label>
       <select id="question9" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
         <option value="4">Four</option>
         <option value="5">Five</option>
       </select>
+      <br><br>
 
+      <h3>Question 10</h3>
       <label for="question10">You feel more energetic after spending time with a group of people.</label>
       <select id="question10" class="custom-select">
-        <option selected></option>
+        <option selected value="0"></option>
         <option value="1">One</option>
         <option value="2">Two</option>
         <option value="3">Three</option>
@@ -132,9 +151,11 @@
         <option value="5">Five</option>
       </select>
 
+      <br><br>
       <button type="submit" class="btn btn-primary submit">Submit</button>
     </form>
 
+    <br><br>
     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
       Launch demo modal
     </button> -->
@@ -179,7 +200,7 @@
     // Here we grab the form elements
     var newFriend = {
       name: $("#formName").val().trim(),
-      photo: $("#customFile").val().trim(),
+      photo: $("#formGroupExampleInput").val().trim(),
       scores: [ 
         parseInt($("#question1").val().trim()),
         parseInt($("#question2").val().trim()),
@@ -201,7 +222,7 @@
         
         // Clear the form when submitting
         $("#formName").val("");
-        $("#customFile").val("");
+        $("#formGroupExampleInput").val("");
         $("#question1").val("");
         $("#question2").val("");
         $("#question3").val("");
@@ -215,7 +236,7 @@
 
         //call Modal
         $("#exampleModalLabel").html("<strong>Best Match:</strong> " + data.name);
-        $(".modal-body").html("<p>"+data.name+"</p>");
+        $(".modal-body").html("<img src="+ data.photo +" height="+ 300 + " width="+ 300+">");
         $('#exampleModal').modal("show");
 
     });
